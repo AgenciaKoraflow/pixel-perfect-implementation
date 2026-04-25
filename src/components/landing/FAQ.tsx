@@ -7,58 +7,55 @@ import {
 
 const faqs = [
   {
-    q: "Quanto tempo leva uma implementação?",
-    a: "Projetos típicos saem do diagnóstico para produção em 4 a 8 semanas. Implementações maiores são divididas em ondas para gerar valor desde a primeira entrega.",
+    q: "Qual é o preço?",
+    a: "Depende da solução. Cada negócio é diferente. No diagnóstico, compartilhamos um preço justo baseado no escopo.",
   },
   {
-    q: "Preciso de uma equipe técnica interna?",
-    a: "Não. Cuidamos de toda a stack — modelos, integrações, deploy e monitoramento. Seu time fica focado em validar resultados e tomar decisões.",
+    q: "Quanto tempo leva?",
+    a: "Varia por solução. Mas garantimos: velocidade inteligente, sem sacrificar qualidade.",
   },
   {
-    q: "Quais sistemas vocês integram?",
-    a: "WhatsApp Business, HubSpot, Pipedrive, Salesforce, Notion, Google Workspace, Microsoft 365, ERPs (Bling, Tiny, Omie), bancos de dados e qualquer API REST.",
+    q: "Como sei que vocês vão entregar?",
+    a: "Boa pergunta. Oferecemos diagnóstico sem compromisso — você verifica antes de decidir. Além disso, temos clientes em diferentes estágios de projeto que validam nosso trabalho todos os dias.",
   },
   {
-    q: "Como vocês garantem segurança e LGPD?",
-    a: "Dados ficam na sua infraestrutura ou em provedores aprovados. Aplicamos controle de acesso, logs auditáveis e contratos com cláusulas específicas de tratamento.",
+    q: "A IA gera conteúdo genérico?",
+    a: "IA é ferramenta. Qualidade é expertise. Cada conteúdo passa por revisão humana e é customizado para seu nicho específico. Não é genérico.",
   },
   {
-    q: "Como funciona o investimento?",
-    a: "Modelo híbrido: setup do projeto + mensalidade de operação. Apresentamos a proposta após o diagnóstico inicial, sempre amarrada às métricas que importam para você.",
+    q: "Por que não contratar um freelancer?",
+    a: "Freelancer = você gerencia tudo. A gente? Você só aprova. Menos trabalho seu, resultado garantido. Além disso, você tem backup, suporte contínuo e responsabilidade de entrega.",
   },
 ];
 
 export const FAQ = () => (
-  <section id="faq" className="py-24 md:py-32">
+  <section id="faq" className="py-24 md:py-32 bg-surface-navy">
     <div className="container-narrow">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-12 md:gap-16 items-start">
-        <div className="md:sticky md:top-32">
-          <span className="eyebrow mb-5">FAQ</span>
-          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-white">
-            Perguntas <em className="not-italic text-gradient-gold">frequentes</em>
-          </h2>
-          <p className="mt-5 body-text">
-            Não encontrou o que procurava? Mande uma mensagem — respondemos em até 24h.
-          </p>
-        </div>
+      <header className="text-center max-w-2xl mx-auto mb-12">
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          Dúvidas <span className="text-gradient-purple">Frequentes</span>
+        </h2>
+        <p className="mt-4 text-lg text-body">
+          Tudo que você precisa saber antes de marcar uma conversa.
+        </p>
+      </header>
 
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((f, i) => (
-            <AccordionItem
-              key={i}
-              value={`item-${i}`}
-              className="border-b border-white/10"
-            >
-              <AccordionTrigger className="py-5 text-left text-base md:text-lg font-medium text-white hover:no-underline hover:text-primary transition-colors">
-                {f.q}
-              </AccordionTrigger>
-              <AccordionContent className="pb-5 text-[15px] leading-relaxed text-body" style={{ fontFamily: "Inter" }}>
-                {f.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+      <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto space-y-3">
+        {faqs.map((f, i) => (
+          <AccordionItem
+            key={i}
+            value={`item-${i}`}
+            className="rounded-lg border border-white/10 bg-surface-blue px-5 data-[state=open]:bg-surface-deep data-[state=open]:border-primary/40 transition-colors"
+          >
+            <AccordionTrigger className="py-5 text-left text-[15px] md:text-base font-semibold text-foreground hover:no-underline data-[state=open]:text-primary transition-colors">
+              {f.q}
+            </AccordionTrigger>
+            <AccordionContent className="pb-5 text-[15px] leading-[1.8] text-body border-l-[3px] border-primary pl-4">
+              {f.a}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   </section>
 );

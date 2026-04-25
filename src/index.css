@@ -10,31 +10,30 @@
 
 @layer base {
   :root {
+    /* Koraflow — Dark navy + violet */
     /* Core surface colors */
-    --background: 0 0% 1.6%;          /* #040404 */
+    --background: 240 7% 4%;          /* #0A0A0B Preto Profundo */
     --foreground: 0 0% 100%;          /* #FFFFFF */
 
-    --card: 0 0% 7%;                  /* #121212 */
+    --card: 220 71% 20%;              /* #0F2657 Azul Marinho */
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 7%;
+    --popover: 220 71% 20%;
     --popover-foreground: 0 0% 100%;
 
     /* Brand */
-    --primary: 51 100% 50%;           /* #FFD700 gold */
-    --primary-foreground: 0 0% 0%;
+    --primary: 261 100% 65%;          /* #8A4BFF Roxo Violeta */
+    --primary-foreground: 0 0% 100%;
 
-    --primary-glow: 30 100% 50%;      /* gold radial glow */
-    --bronze: 29 61% 50%;             /* #CD7F32 */
-    --gold-deep: 44 80% 50%;          /* #E6AB19 */
+    --primary-glow: 265 100% 73%;     /* #B078FF Roxo Claro */
 
-    --secondary: 0 0% 7%;             /* card gray */
+    --secondary: 220 71% 20%;         /* card navy */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 10%;
-    --muted-foreground: 220 5% 63%;   /* #9AA0A6 body */
+    --muted: 213 60% 17%;             /* #112B46 Azul Escuro */
+    --muted-foreground: 0 0% 82%;     /* #D0D0D0 body */
 
-    --accent: 0 0% 12%;
+    --accent: 261 100% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -42,40 +41,49 @@
 
     --border: 0 0% 100%;              /* used with /15 opacity */
     --input: 0 0% 100%;
-    --ring: 51 100% 50%;
+    --ring: 261 100% 65%;
 
-    --radius: 1.25rem;                /* 20px cards */
+    --radius: 0.75rem;                /* 12px cards */
+
+    /* Surface tokens */
+    --surface-deep: 240 7% 4%;        /* #0A0A0B */
+    --surface-navy: 220 71% 20%;      /* #0F2657 */
+    --surface-blue: 213 60% 17%;      /* #112B46 */
 
     /* Body text token */
-    --body: 220 5% 63%;               /* #9AA0A6 */
+    --body: 0 0% 82%;                 /* #D0D0D0 */
+    --body-soft: 0 0% 75%;            /* #C0C0C0 */
+    --body-mute: 0 0% 63%;            /* #A0A0A0 */
 
     /* Gradients */
-    --gradient-gold: radial-gradient(circle farthest-corner at 100% 100%, hsl(51 100% 50%), hsl(29 61% 50%));
-    --gradient-button: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.15)), radial-gradient(circle farthest-corner at 100% 100%, #FFD700, #CD7F32);
-    --gradient-fade-card: linear-gradient(180deg, transparent, hsl(0 0% 7%));
+    --gradient-purple: linear-gradient(135deg, hsl(261 100% 65%), hsl(265 100% 73%));
+    --gradient-hero: linear-gradient(to bottom, hsl(240 7% 4%), hsl(213 60% 17%));
+    --gradient-cta: linear-gradient(to bottom, hsl(220 71% 20%), hsl(240 7% 4%));
+    --gradient-button: linear-gradient(135deg, hsl(261 100% 65%), hsl(265 100% 73%));
 
     /* Shadows */
-    --shadow-gold: 0 10px 40px -10px hsl(51 100% 50% / 0.35);
+    --shadow-purple: 0 8px 20px -4px hsl(261 100% 65% / 0.3);
+    --shadow-purple-lg: 0 12px 30px -6px hsl(261 100% 65% / 0.4);
     --shadow-card: 0 8px 30px -12px hsl(0 0% 0% / 0.5);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s ease-in-out;
 
-    /* Sidebar (kept defaults, dark) */
-    --sidebar-background: 0 0% 1.6%;
+    /* Sidebar */
+    --sidebar-background: 240 7% 4%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 51 100% 50%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 12%;
+    --sidebar-primary: 261 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 71% 20%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 100%;
-    --sidebar-ring: 51 100% 50%;
+    --sidebar-ring: 261 100% 65%;
   }
 
   /* Dark class points to same tokens — site is dark by default */
   .dark {
-    --background: 0 0% 1.6%;
+    --background: 240 7% 4%;
     --foreground: 0 0% 100%;
   }
 }
@@ -91,14 +99,14 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     font-feature-settings: "ss01", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', system-ui, sans-serif;
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   /* Custom scrollbar */
@@ -126,7 +134,7 @@
 
 @layer components {
   .eyebrow {
-    @apply text-[hsl(var(--body))] uppercase tracking-[1px] text-sm font-semibold leading-none block;
+    @apply text-primary uppercase tracking-[2px] text-xs font-semibold leading-none block;
     font-family: 'Inter', sans-serif;
   }
 
@@ -145,35 +153,44 @@
 
   .container-narrow {
     @apply mx-auto px-6 md:px-8;
-    max-width: 970px;
+    max-width: 1120px;
   }
 
   .container-wide {
     @apply mx-auto px-6 md:px-8;
-    max-width: 1336px;
+    max-width: 1280px;
   }
 }
 
 @layer utilities {
-  .bg-gradient-gold {
-    background-image: var(--gradient-gold);
+  .bg-gradient-purple {
+    background-image: var(--gradient-purple);
   }
   .bg-gradient-button {
     background-image: var(--gradient-button);
   }
-  .text-gradient-gold {
-    background: linear-gradient(135deg, #FFD700, #CD7F32);
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+  .bg-gradient-cta {
+    background-image: var(--gradient-cta);
+  }
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #8A4BFF, #B078FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .shadow-gold {
-    box-shadow: var(--shadow-gold);
+  .shadow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+  .shadow-purple-lg {
+    box-shadow: var(--shadow-purple-lg);
   }
 
-  /* Radial gold glow background utility */
-  .bg-gold-glow {
-    background: radial-gradient(circle at 50% 100%, hsl(51 100% 50% / 0.18), transparent 60%);
+  /* Radial purple glow background utility */
+  .bg-purple-glow {
+    background: radial-gradient(circle at 50% 100%, hsl(261 100% 65% / 0.18), transparent 60%);
   }
 
   .animate-marquee {
