@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, Instagram, Linkedin } from "lucide-react";
 
 const navLinks = [
-  { label: "Problema", href: "#problema" },
-  { label: "Soluções", href: "#solucao" },
-  { label: "Como funciona", href: "#processo" },
-  { label: "Por que nós", href: "#diferenciais" },
+  { label: "Método Brabaflow", href: "#metodo" },
+  { label: "Serviços", href: "#servicos" },
   { label: "FAQ", href: "#faq" },
 ];
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -22,27 +18,27 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pt-4">
+    <header className="fixed top-0 left-0 right-0 z-50 pt-5">
       <div className="container-narrow">
         <nav
           className={`glass-pill flex items-center justify-between gap-4 rounded-2xl px-5 py-3 transition-all duration-300 ${
-            scrolled ? "bg-background/80" : ""
+            scrolled ? "bg-background/70" : ""
           }`}
           aria-label="Principal"
         >
-          <a href="#" className="flex items-center gap-2 text-foreground font-display font-bold tracking-tight">
+          <a href="#" className="flex items-center gap-2 text-white font-display font-semibold tracking-tight">
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-button text-primary-foreground font-bold">
-              K
+              B
             </span>
-            <span className="hidden sm:inline">Koraflow</span>
+            <span className="hidden sm:inline">Brabaflow</span>
           </a>
 
-          <ul className="hidden lg:flex items-center gap-7">
+          <ul className="hidden md:flex items-center gap-7">
             {navLinks.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="text-sm text-foreground/80 hover:text-primary transition-colors"
+                  className="text-sm text-white/85 hover:text-white transition-colors"
                 >
                   {l.label}
                 </a>
@@ -51,42 +47,31 @@ export const Navbar = () => {
           </ul>
 
           <div className="flex items-center gap-2">
-            <Button asChild variant="purple" size="sm" className="hidden sm:inline-flex">
-              <a href="#cta">Agendar diagnóstico</a>
-            </Button>
+            <div className="hidden sm:flex items-center gap-2 mr-1">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-background hover:bg-white/5 transition"
+              >
+                <Instagram className="h-4 w-4 text-white" />
+              </a>
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-background hover:bg-white/5 transition"
+              >
+                <Linkedin className="h-4 w-4 text-white" />
+              </a>
+            </div>
             <button
-              onClick={() => setOpen((v) => !v)}
-              className="lg:hidden grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-foreground hover:bg-white/10 transition"
-              aria-label={open ? "Fechar menu" : "Abrir menu"}
-              aria-expanded={open}
+              className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/15 transition"
+              aria-label="Menu"
             >
-              {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              <Menu className="h-4 w-4" />
+              <span className="hidden sm:inline">Menu</span>
             </button>
           </div>
         </nav>
-
-        {open && (
-          <div className="lg:hidden mt-2 rounded-2xl border border-white/15 bg-background/95 backdrop-blur p-5">
-            <ul className="flex flex-col gap-1">
-              {navLinks.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block px-3 py-3 text-sm text-foreground/85 hover:text-primary hover:bg-white/5 rounded-lg transition-colors"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-              <li className="pt-2">
-                <Button asChild variant="purple" className="w-full">
-                  <a href="#cta" onClick={() => setOpen(false)}>Agendar diagnóstico</a>
-                </Button>
-              </li>
-            </ul>
-          </div>
-        )}
       </div>
     </header>
   );
