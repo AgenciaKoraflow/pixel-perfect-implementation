@@ -23,8 +23,11 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         body: "hsl(var(--body))",
-        bronze: "hsl(var(--bronze))",
-        "gold-deep": "hsl(var(--gold-deep))",
+        "body-soft": "hsl(var(--body-soft))",
+        "body-mute": "hsl(var(--body-mute))",
+        "surface-deep": "hsl(var(--surface-deep))",
+        "surface-navy": "hsl(var(--surface-navy))",
+        "surface-blue": "hsl(var(--surface-blue))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -69,7 +72,7 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 4px)",
         sm: "calc(var(--radius) - 8px)",
-        pill: "50px",
+        pill: "9999px",
       },
       keyframes: {
         "accordion-down": {
