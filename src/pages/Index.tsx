@@ -1,9 +1,10 @@
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
-import { ClientLogos } from "@/components/landing/ClientLogos";
+import { VideoSection } from "@/components/landing/ClientLogos";
+import { Bottlenecks } from "@/components/landing/Bottlenecks";
 import { Services } from "@/components/landing/Services";
-import { Differentials } from "@/components/landing/Differentials";
 import { Method } from "@/components/landing/Method";
+import { Differentials } from "@/components/landing/Differentials";
 import { FAQ } from "@/components/landing/FAQ";
 import { CTA } from "@/components/landing/CTA";
 import { Footer } from "@/components/landing/Footer";
@@ -14,10 +15,11 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <ClientLogos />
+        <VideoSection />
+        <Bottlenecks />
         <Services />
-        <Differentials />
         <Method />
+        <Differentials />
         <FAQ />
         <CTA />
       </main>
