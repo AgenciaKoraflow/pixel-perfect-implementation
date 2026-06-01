@@ -24,25 +24,23 @@ export const Hero = () => {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary"></span>
           </span>
-          Implementação · Sob medida · IA aplicada
+          Inteligência · Desenvolvimento · Criatividade
         </div>
 
         <h1 className="mt-8 font-display text-[44px] sm:text-6xl md:text-[75px] font-medium leading-[1.05] tracking-tight text-white animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          Fazemos <em className="not-italic font-medium text-gradient-gold">Agentes de IA</em>
-          <br className="hidden sm:block" />
-          {" "}trabalharem por <span className="text-body">você</span>
+          Sua operação ainda demora para <em className="not-italic font-medium text-gradient-gold">responder?</em>
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-lg text-body leading-relaxed animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          Implementamos sistemas de IA personalizados que automatizam processos, escalam operações e liberam seu time para o que realmente importa.
+          Construímos sistemas que pensam, atendem e vendem — 24h por dia. Sem perder o gênio humano.
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3 animate-fade-up" style={{ animationDelay: "0.3s" }}>
           <Button variant="hero" size="hero" className="group">
-            Entender como funciona
+            Agendar Diagnóstico
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
-          <p className="text-xs text-body">Resposta em até 24 horas · Sem compromisso</p>
+          <p className="text-xs text-body">Resposta em 72h · Sem compromisso</p>
         </div>
       </div>
 

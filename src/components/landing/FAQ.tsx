@@ -7,24 +7,24 @@ import {
 
 const faqs = [
   {
-    q: "Quanto tempo leva uma implementação?",
-    a: "Projetos típicos saem do diagnóstico para produção em 4 a 8 semanas. Implementações maiores são divididas em ondas para gerar valor desde a primeira entrega.",
-  },
-  {
-    q: "Preciso de uma equipe técnica interna?",
-    a: "Não. Cuidamos de toda a stack — modelos, integrações, deploy e monitoramento. Seu time fica focado em validar resultados e tomar decisões.",
-  },
-  {
-    q: "Quais sistemas vocês integram?",
-    a: "WhatsApp Business, HubSpot, Pipedrive, Salesforce, Notion, Google Workspace, Microsoft 365, ERPs (Bling, Tiny, Omie), bancos de dados e qualquer API REST.",
-  },
-  {
-    q: "Como vocês garantem segurança e LGPD?",
-    a: "Dados ficam na sua infraestrutura ou em provedores aprovados. Aplicamos controle de acesso, logs auditáveis e contratos com cláusulas específicas de tratamento.",
+    q: "Quanto tempo leva uma entrega?",
+    a: "Cada projeto tem seu prazo, calculado conforme escopo e objetivo. Você sabe exatamente quanto tempo vai levar antes de aprovar.",
   },
   {
     q: "Como funciona o investimento?",
-    a: "Modelo híbrido: setup do projeto + mensalidade de operação. Apresentamos a proposta após o diagnóstico inicial, sempre amarrada às métricas que importam para você.",
+    a: "Solução por entrega, não hora trabalhada. Cada vertical tem 3 níveis: entry, core e recorrente.",
+  },
+  {
+    q: "Conseguem integrar com nossos sistemas?",
+    a: "Se tem API ou export, fazemos conversar.",
+  },
+  {
+    q: "IA faz tudo sozinha?",
+    a: "IA é ferramenta. Expertise é diferencial. Sem expertise humana, entrega vira genérica.",
+  },
+  {
+    q: "Como funciona o contrato?",
+    a: "Cada vertical tem seu modelo — projetos pontuais ou planos recorrentes. As condições são apresentadas com clareza na proposta, antes de qualquer assinatura.",
   },
 ];
 
@@ -38,7 +38,7 @@ export const FAQ = () => (
             Perguntas <em className="not-italic text-gradient-gold">frequentes</em>
           </h2>
           <p className="mt-5 body-text">
-            Não encontrou o que procurava? Mande uma mensagem — respondemos em até 24h.
+          Não encontrou o que procurava? Mande uma mensagem — respondemos em 24h.
           </p>
         </div>
 
