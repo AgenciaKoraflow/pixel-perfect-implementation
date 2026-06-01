@@ -1,34 +1,39 @@
-import { Sparkles, Target, ShieldCheck } from "lucide-react";
+import { Zap, Eye, BadgeCheck, MessageCircle } from "lucide-react";
 
 const items = [
   {
-    icon: Target,
-    title: "Foco em ROI mensurável",
-    desc: "Toda implementação parte de uma métrica de negócio. Sem agentes pelo agente.",
+    icon: Zap,
+    title: "Velocidade Inteligente",
+    desc: "Entregamos rápido porque sabemos o que fazer.",
   },
   {
-    icon: Sparkles,
-    title: "Implementação sob medida",
-    desc: "Nada de templates engessados. Cada solução é desenhada para o seu fluxo real.",
+    icon: Eye,
+    title: "Transparência Total",
+    desc: "Você sabe o que vai receber antes de começar.",
   },
   {
-    icon: ShieldCheck,
-    title: "Governança e segurança",
-    desc: "LGPD, controle de acesso e logs auditáveis. IA com responsabilidade desde o dia zero.",
+    icon: BadgeCheck,
+    title: "Qualidade de Entrega",
+    desc: "Pronta pra usar — não pra ajustar depois.",
+  },
+  {
+    icon: MessageCircle,
+    title: "Comunicação Real",
+    desc: "Resposta em 24h. Sem intermediários.",
   },
 ];
 
 export const Differentials = () => (
-  <section id="metodo" className="py-24 md:py-32">
+  <section id="sobre" className="py-24 md:py-32">
     <div className="container-narrow">
       <header className="text-center max-w-2xl mx-auto mb-16">
-        <span className="eyebrow mb-5">Diferenciais</span>
+        <span className="eyebrow mb-5">Por que Koraflow</span>
         <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-white">
-          Por que <em className="not-italic text-gradient-gold">contratar</em> a Brabaflow
+          Inteligência que entrega. <em className="not-italic text-gradient-gold">Clareza</em> que sustenta.
         </h2>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {items.map((it, idx) => (
           <article
             key={it.title}
