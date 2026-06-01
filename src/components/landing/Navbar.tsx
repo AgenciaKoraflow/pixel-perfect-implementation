@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Menu, Instagram, Linkedin } from "lucide-react";
 
 const navLinks = [
-  { label: "Método Brabaflow", href: "#metodo" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Soluções", href: "#solucoes" },
+  { label: "Processo", href: "#processo" },
+  { label: "Sobre", href: "#sobre" },
 ];
 
 export const Navbar = () => {
@@ -28,9 +28,9 @@ export const Navbar = () => {
         >
           <a href="#" className="flex items-center gap-2 text-white font-display font-semibold tracking-tight">
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-button text-primary-foreground font-bold">
-              B
+              K
             </span>
-            <span className="hidden sm:inline">Brabaflow</span>
+            <span className="hidden sm:inline">Koraflow</span>
           </a>
 
           <ul className="hidden md:flex items-center gap-7">
@@ -63,13 +63,13 @@ export const Navbar = () => {
                 <Linkedin className="h-4 w-4 text-white" />
               </a>
             </div>
-            <button
-              className="flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/15 transition"
-              aria-label="Menu"
+            <a
+              href="#contato"
+              className="flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition shadow-gold"
             >
-              <Menu className="h-4 w-4" />
-              <span className="hidden sm:inline">Menu</span>
-            </button>
+              <span className="hidden sm:inline">Agendar Diagnóstico</span>
+              <Menu className="h-4 w-4 sm:hidden" />
+            </a>
           </div>
         </nav>
       </div>
