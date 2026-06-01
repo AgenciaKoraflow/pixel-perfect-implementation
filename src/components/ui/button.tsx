@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         hero:
-          "bg-gradient-button text-white border-2 border-transparent rounded-pill font-medium tracking-tight shadow-gold hover:shadow-[0_15px_50px_-10px_hsl(51_100%_50%/0.5)] hover:-translate-y-0.5 transition-all duration-200",
+          "bg-gradient-button text-white border-2 border-transparent rounded-pill font-medium tracking-tight shadow-gold hover:shadow-[0_15px_50px_-10px_hsl(28_100%_50%/0.5)] hover:-translate-y-0.5 transition-all duration-200",
         glass:
           "border border-white/15 bg-white/5 text-white rounded-pill backdrop-blur-md hover:bg-white/10 transition-all",
         gold:
