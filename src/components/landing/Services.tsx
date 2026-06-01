@@ -1,54 +1,45 @@
 import service1 from "@/assets/service-1.jpg";
 import service2 from "@/assets/service-2.jpg";
 import service3 from "@/assets/service-3.jpg";
-import service4 from "@/assets/service-4.jpg";
 
 const services = [
   {
     img: service1,
-    tagYellow: "Atendimento",
-    tagDark: "WhatsApp + CRM",
-    title: "Agentes de Atendimento 24/7",
-    desc: "SDRs e atendentes virtuais que qualificam leads, respondem dúvidas e marcam reuniões enquanto seu time descansa.",
+    tagYellow: "Inteligência",
+    tagDark: "IA & Automação",
+    title: "Agentes que atendem, qualificam e vendem 24/7",
+    desc: "Sem aumentar headcount. Operação que responde em segundos, todos os dias.",
   },
   {
     img: service2,
-    tagYellow: "Operações",
-    tagDark: "Workflows",
-    title: "Automação de Processos Internos",
-    desc: "Conectamos sistemas, eliminamos retrabalho e orquestramos rotinas críticas com agentes que aprendem com seus dados.",
+    tagYellow: "Desenvolvimento",
+    tagDark: "Sistemas & Plataformas",
+    title: "Landing pages, sistemas e e-commerce sob medida",
+    desc: "Construídos para escalar com sua operação — não para travar quando ela cresce.",
   },
   {
     img: service3,
-    tagYellow: "Vendas",
-    tagDark: "Pipeline",
-    title: "Inteligência Comercial Aplicada",
-    desc: "Forecasts, scoring de oportunidades e análise de pipeline para vendedores agirem no momento certo, com a oferta certa.",
-  },
-  {
-    img: service4,
-    tagYellow: "Backoffice",
-    tagDark: "Documentos",
-    title: "Análise de Documentos com LLM",
-    desc: "Extração estruturada de contratos, NFs e PDFs em escala — com validação humana onde o risco compensa.",
+    tagYellow: "Criatividade",
+    tagDark: "Campanhas com IA",
+    title: "Criativos em massa para minerar o menor CPC",
+    desc: "Sem estúdio, sem fotógrafo. Volume e variação para o algoritmo encontrar o vencedor.",
   },
 ];
 
 export const Services = () => (
-  <section id="servicos" className="py-24 md:py-32">
+  <section id="solucoes" className="py-24 md:py-32">
     <div className="container-narrow">
       <header className="text-center max-w-2xl mx-auto mb-16">
-        <span className="eyebrow mb-5">Serviços</span>
+        <span className="eyebrow mb-5">Soluções</span>
         <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-white">
-          Soluções <em className="not-italic text-gradient-gold">desenhadas</em> para o
-          seu negócio
+          Três frentes. <em className="not-italic text-gradient-gold">Contratadas</em> como você precisa.
         </h2>
         <p className="mt-5 body-text">
-          Cada implementação é única. Mapeamos processos, identificamos gargalos e construímos agentes que entregam ROI mensurável.
+          Contrate uma vertical isolada ou combine quando o problema for integrado.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {services.map((s) => (
           <article
             key={s.title}
