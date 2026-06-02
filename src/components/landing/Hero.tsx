@@ -1,24 +1,36 @@
+import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+import { useFrameSequence } from "@/hooks/useFrameSequence";
 
 export const Hero = () => {
-  return (
-    <section className="relative overflow-hidden pt-44 pb-32 md:pt-52 md:pb-40">
-      {/* Background image */}
-      <div className="absolute inset-0 -z-10">
-        <img
-          src={heroBg}
-          alt=""
-          aria-hidden="true"
-          width={1920}
-          height={1280}
-          className="h-full w-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
-      </div>
+  const sectionRef = useRef<HTMLElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-      <div className="container-narrow text-left">
+  useFrameSequence(sectionRef, canvasRef);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative pt-44 pb-32 md:pt-52 md:pb-40"
+      style={{ minHeight: "100vh" }}
+    >
+      {/* Animated canvas background */}
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{ zIndex: 0, opacity: 0.7 }}
+      />
+
+      {/* Overlay gradient */}
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background"
+        style={{ zIndex: 1 }}
+      />
+
+      {/* Text content */}
+      <div className="container-narrow text-left relative" style={{ zIndex: 2 }}>
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur animate-fade-up">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
@@ -45,7 +57,10 @@ export const Hero = () => {
       </div>
 
       {/* Bottom fade into next section */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-background" />
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-background"
+        style={{ zIndex: 3 }}
+      />
     </section>
   );
 };
