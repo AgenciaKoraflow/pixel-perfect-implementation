@@ -4,23 +4,23 @@ import service3 from "@/assets/service-3.jpg";
 
 const services = [
   {
-    img: service1,
+    img: service2,
     tagYellow: "Inteligência",
     tagDark: "IA & Automação",
     title: "Agentes que atendem, qualificam e vendem 24/7",
     desc: "Sem aumentar headcount. Operação que responde em segundos, todos os dias.",
   },
   {
-    img: service2,
+    img: service3,
     tagYellow: "Desenvolvimento",
     tagDark: "Sistemas & Plataformas",
-    title: "Landing pages, sistemas e e-commerce sob medida",
-    desc: "Construídos para escalar com sua operação — não para travar quando ela cresce.",
+    title: "Landing pages, sistemas e e-commerce",
+    desc: "Construídos e gereciamos para escalar com sua operação — não para travar quando ela cresce.",
   },
   {
-    img: service3,
+    img: service1,
     tagYellow: "Criatividade",
-    tagDark: "Campanhas com IA",
+    tagDark: "Criativos com IA",
     title: "Criativos em massa para minerar o menor CPC",
     desc: "Sem estúdio, sem fotógrafo. Volume e variação para o algoritmo encontrar o vencedor.",
   },
@@ -43,9 +43,9 @@ export const Services = () => (
         {services.map((s) => (
           <article
             key={s.title}
-            className="group relative overflow-hidden rounded-[20px] border border-white/15 bg-card transition-all duration-300 hover:border-white/25 hover:-translate-y-1 hover:shadow-card"
+            className="group relative isolate overflow-hidden rounded-[20px] border border-white/15 bg-card transition-all duration-300 hover:border-white/25 hover:-translate-y-1 hover:shadow-card"
           >
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-56 overflow-hidden rounded-t-[20px]">
               <img
                 src={s.img}
                 alt={s.title}
@@ -56,9 +56,6 @@ export const Services = () => (
               />
               <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
               <div className="absolute top-4 left-4 flex items-end gap-2">
-                <span className="rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground" style={{ fontFamily: "Inter" }}>
-                  {s.tagYellow}
-                </span>
                 <span className="rounded-md border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur" style={{ fontFamily: "Inter" }}>
                   {s.tagDark}
                 </span>
