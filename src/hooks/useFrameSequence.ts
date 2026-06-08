@@ -46,8 +46,10 @@ export function useFrameSequence({
     });
     resizeObserver.observe(sticky);
 
-    if (heroContentRef.current) gsap.set(heroContentRef.current, { opacity: 1 });
-    if (videoContentRef.current) gsap.set(videoContentRef.current, { opacity: 0, y: 40 });
+    if (heroContentRef.current)
+      gsap.set(heroContentRef.current, { opacity: 1 });
+    if (videoContentRef.current)
+      gsap.set(videoContentRef.current, { opacity: 0, y: 40 });
 
     // aborted prevents Strict Mode's double-invocation from creating a second tween
     let aborted = false;
@@ -90,7 +92,7 @@ export function useFrameSequence({
           trigger: wrapper,
           start: "top top",
           end: "bottom bottom",
-          scrub: 0.5,
+          scrub: 0.65,
         },
       });
     });

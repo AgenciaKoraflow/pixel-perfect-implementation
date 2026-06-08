@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Youtube, Mail } from "lucide-react";
+import { Instagram, Linkedin, Facebook, Twitter, Mail } from "lucide-react";
 
 const cols = [
   {
@@ -37,11 +37,18 @@ export const Footer = () => (
             contato@koraflow.com.br
           </a>
           <div className="mt-6 flex items-center gap-2">
-            {[Linkedin, Instagram, Youtube].map((Icon, i) => (
+            {[
+              { Icon: Instagram, href: "https://instagram.com/koraflow", label: "Instagram" },
+              { Icon: Facebook, href: "https://facebook.com/koraflow", label: "Facebook" },
+              { Icon: Twitter, href: "https://twitter.com/koraflow", label: "Twitter" },
+              { Icon: Linkedin, href: "https://linkedin.com/company/koraflow", label: "LinkedIn" },
+            ].map(({ Icon, href, label }) => (
               <a
-                key={i}
-                href="#"
-                aria-label="Social"
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
                 className="grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-background hover:bg-white/5 transition"
               >
                 <Icon className="h-4 w-4 text-white" />

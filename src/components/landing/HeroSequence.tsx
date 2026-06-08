@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useFrameSequence } from "@/hooks/useFrameSequence";
 
 // Total scroll space allocated to this sequence (multiples of viewport height)
-const SCROLL_MULTIPLIER = 5;
+const SCROLL_MULTIPLIER = 4;
 
 export const HeroSequence = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
