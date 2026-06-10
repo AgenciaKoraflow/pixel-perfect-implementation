@@ -104,9 +104,8 @@ export const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 pt-5">
       <div className="container-narrow">
         <nav
-          className={`glass-pill flex items-center justify-between gap-4 rounded-2xl px-5 py-3 transition-all duration-300 ${
-            scrolled ? "bg-background/70" : ""
-          }`}
+          className={`glass-pill flex items-center justify-between gap-4 rounded-2xl px-5 py-3 transition-all duration-300 ${scrolled ? "bg-background/70" : ""
+            }`}
           aria-label="Principal"
         >
           <a href="#" className="flex items-center gap-2 text-white font-display font-semibold tracking-tight">

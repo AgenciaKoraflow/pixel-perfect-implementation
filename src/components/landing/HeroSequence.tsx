@@ -54,8 +54,8 @@ export const HeroSequence = () => {
           className="absolute inset-0"
           style={{ zIndex: 2 }}
         >
-          <div className="container-narrow text-left pt-44 pb-32 md:pt-52 md:pb-40">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur animate-fade-up">
+          <div className="container-narrow min-h-screen flex flex-col justify-center text-left pt-10">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur animate-fade-up w-max">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
@@ -98,18 +98,8 @@ export const HeroSequence = () => {
           style={{ zIndex: 2, opacity: 0 }}
         >
           <div className="container-narrow py-24 md:py-32 w-full">
-            <header className="text-center max-w-2xl mx-auto mb-12">
-              <span className="eyebrow mb-5">Vídeo</span>
-              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-white">
-                Koraflow{" "}
-                <em className="not-italic text-gradient-gold">em movimento</em>
-              </h2>
-              <p className="mt-5 body-text">
-                Tecnologia, criatividade e estratégia operando juntas — em 60 segundos.
-              </p>
-            </header>
 
-            <div className="group relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-[24px] border border-white/15 bg-card cursor-pointer">
+            <div className="group relative mx-auto aspect-video w-full max-w-4xl max-h-[440px] overflow-hidden rounded-[24px] border border-white/15 bg-card cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-card to-background" />
               <div
                 aria-hidden

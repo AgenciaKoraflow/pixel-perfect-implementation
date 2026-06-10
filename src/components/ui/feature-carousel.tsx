@@ -33,7 +33,7 @@ export const FeatureCarousel = React.forwardRef<HTMLDivElement, FeatureCarouselP
     return (
       <div
         ref={ref}
-        className={cn('relative w-full h-[280px] flex items-center justify-center', className)}
+        className={cn('relative w-full h-[280px] flex items-center justify-center overflow-hidden', className)}
         {...props}
       >
         {/* Cards track */}
