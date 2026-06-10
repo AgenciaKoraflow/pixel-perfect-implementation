@@ -7,6 +7,7 @@ import { Differentials } from "@/components/landing/Differentials";
 import { FAQ } from "@/components/landing/FAQ";
 import { CTA } from "@/components/landing/CTA";
 import { Footer } from "@/components/landing/Footer";
+import { ParallaxStack } from "@/components/landing/ParallaxStack";
 
 const Index = () => {
   return (
@@ -14,10 +15,12 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSequence />
-        <Bottlenecks />
-        <Services />
-        <Method />
-        <Differentials />
+        <ParallaxStack>
+          <Bottlenecks />
+          <Services />
+          <Method />
+          <Differentials />
+        </ParallaxStack>
         <FAQ />
         <CTA />
       </main>

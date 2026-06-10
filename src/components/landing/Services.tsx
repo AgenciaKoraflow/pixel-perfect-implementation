@@ -85,7 +85,7 @@ export const Services = () => {
       {/* Desktop: pin scroll effect */}
       <div
         ref={pinSectionRef}
-        className="hidden md:flex items-center justify-center flex-col h-screen border-t border-b border-dashed border-white/10"
+        className="hidden md:flex items-center justify-center flex-col h-screen"
       >
         <div className="w-full max-w-[970px] mx-auto px-8 flex flex-col gap-16">
           <header className="text-center max-w-2xl mx-auto">
@@ -98,7 +98,7 @@ export const Services = () => {
               Contrate uma vertical isolada ou combine quando o problema for integrado.
             </p>
           </header>
-          <div className="flex relative align-center">
+          <div className="flex relative items-center">
             {/* Fill bar */}
             <div
               ref={fillRef}
