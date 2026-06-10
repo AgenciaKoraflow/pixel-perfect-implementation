@@ -24,7 +24,7 @@ const items = [
 ];
 
 export const Bottlenecks = () => (
-  <section className="py-24 md:py-32">
+  <section className="min-h-screen flex items-center py-24 md:py-32">
     <div className="container-narrow">
       <header className="text-center max-w-2xl mx-auto mb-16">
         <span className="eyebrow mb-5">Gargalos</span>

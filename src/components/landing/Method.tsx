@@ -17,7 +17,7 @@ const steps = [
 ];
 
 export const Method = () => (
-  <section id="processo" className="py-24 md:py-32">
+  <section id="processo" className="min-h-screen flex items-center py-24 md:py-32">
     <div className="container-narrow">
       <header className="text-center max-w-2xl mx-auto mb-16">
         <span className="eyebrow mb-5">Processo</span>

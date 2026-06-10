@@ -19,7 +19,7 @@ export const ParallaxStack = ({ children }: { children: React.ReactNode }) => {
         gsap.timeline({
           scrollTrigger: {
             trigger: panel,
-            start: "top top",
+            start: "bottom-=100vh top",
             end: "+=100%",
             scrub: true,
           },
