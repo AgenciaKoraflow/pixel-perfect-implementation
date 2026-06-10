@@ -15,7 +15,7 @@ interface FeatureCarouselProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const FeatureCarousel = React.forwardRef<HTMLDivElement, FeatureCarouselProps>(
   ({ items, className, ...props }, ref) => {
-    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [currentIndex, setCurrentIndex] = React.useState(Math.floor(items.length / 2));
 
     const handleNext = React.useCallback(() => {
       setCurrentIndex((prev) => (prev + 1) % items.length);
@@ -33,7 +33,7 @@ export const FeatureCarousel = React.forwardRef<HTMLDivElement, FeatureCarouselP
     return (
       <div
         ref={ref}
-        className={cn('relative w-full h-[280px] flex items-center justify-center overflow-hidden', className)}
+        className={cn('relative w-full h-[300px] flex items-center justify-center overflow-hidden', className)}
         {...props}
       >
         {/* Cards track */}
@@ -45,18 +45,17 @@ export const FeatureCarousel = React.forwardRef<HTMLDivElement, FeatureCarouselP
 
             const isCenter = pos === 0;
             const isAdjacent = Math.abs(pos) === 1;
-            const isVisible = Math.abs(pos) <= 1;
 
             return (
               <div
                 key={index}
-                className="absolute w-72 transition-all duration-500 ease-in-out"
+                className="absolute w-64 sm:w-72 transition-all duration-500 ease-in-out"
                 style={{
-                  transform: `translateX(${pos * 310}px) scale(${isCenter ? 1 : 0.8}) rotateY(${pos * -8}deg)`,
+                  transform: `translateX(${pos * 55}%) scale(${isCenter ? 1 : isAdjacent ? 0.85 : 0.7}) rotateY(${pos * -10}deg)`,
                   zIndex: isCenter ? 10 : isAdjacent ? 5 : 1,
-                  opacity: isCenter ? 1 : isAdjacent ? 0.45 : 0,
-                  filter: isCenter ? 'none' : 'blur(3px)',
-                  visibility: isVisible ? 'visible' : 'hidden',
+                  opacity: isCenter ? 1 : isAdjacent ? 0.4 : 0,
+                  filter: isCenter ? 'none' : 'blur(4px)',
+                  visibility: Math.abs(pos) > 1 ? 'hidden' : 'visible',
                   pointerEvents: isCenter ? 'auto' : 'none',
                 }}
               >
@@ -80,7 +79,7 @@ export const FeatureCarousel = React.forwardRef<HTMLDivElement, FeatureCarouselP
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full z-20 bg-background/60 backdrop-blur-sm border-white/15 hover:border-primary/40"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 rounded-full z-20 bg-background/60 backdrop-blur-sm border-white/15 hover:border-primary/40"
           onClick={handlePrev}
           aria-label="Card anterior"
         >
@@ -91,7 +90,7 @@ export const FeatureCarousel = React.forwardRef<HTMLDivElement, FeatureCarouselP
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full z-20 bg-background/60 backdrop-blur-sm border-white/15 hover:border-primary/40"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 rounded-full z-20 bg-background/60 backdrop-blur-sm border-white/15 hover:border-primary/40"
           onClick={handleNext}
           aria-label="Próximo card"
         >
