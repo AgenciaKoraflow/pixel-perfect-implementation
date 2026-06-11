@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DiagnosticModal } from "@/components/landing/DiagnosticModal";
 
-export const CTA = () => (
+export const CTA = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  return (
   <section className="relative py-24 md:py-32 overflow-hidden">
     {/* Decorative gold blur */}
     <div
@@ -20,7 +24,7 @@ export const CTA = () => (
         </p>
 
         <div className="mt-9 flex flex-col sm:flex-row gap-3 items-center justify-center">
-          <Button variant="hero" size="hero" className="group">
+          <Button variant="hero" size="hero" className="group" onClick={() => setModalOpen(true)}>
             Agendar Diagnóstico
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
@@ -30,5 +34,7 @@ export const CTA = () => (
         </div>
       </div>
     </div>
+    <DiagnosticModal open={modalOpen} onOpenChange={setModalOpen} />
   </section>
-);
+  );
+};

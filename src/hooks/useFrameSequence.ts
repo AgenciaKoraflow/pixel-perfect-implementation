@@ -49,7 +49,7 @@ export function useFrameSequence({
     if (heroContentRef.current)
       gsap.set(heroContentRef.current, { opacity: 1 });
     if (videoContentRef.current)
-      gsap.set(videoContentRef.current, { opacity: 0, y: 40 });
+      gsap.set(videoContentRef.current, { opacity: 0, y: 40, pointerEvents: "none" });
 
     // aborted prevents Strict Mode's double-invocation from creating a second tween
     let aborted = false;
@@ -85,6 +85,7 @@ export function useFrameSequence({
             gsap.set(videoContentRef.current, {
               opacity: videoProgress,
               y: 40 * (1 - videoProgress),
+              pointerEvents: videoProgress > 0 ? "auto" : "none",
             });
           }
         },

@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef, useContext, createContext } from "react";
 import { Menu } from "lucide-react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { DiagnosticModal } from "@/components/landing/DiagnosticModal";
+import logoKoraflow from "@/assets/logo-koraflow.png";
 
 const navLinks = [
   { label: "Soluções", href: "#solucoes" },
@@ -82,6 +84,7 @@ function SocialDockIcon({ link }: { link: typeof socialLinks[0] }) {
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -108,11 +111,8 @@ export const Navbar = () => {
             }`}
           aria-label="Principal"
         >
-          <a href="#" className="flex items-center gap-2 text-white font-display font-semibold tracking-tight">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-button text-primary-foreground font-bold">
-              K
-            </span>
-            <span className="hidden sm:inline">Koraflow</span>
+          <a href="#">
+            <img src={logoKoraflow} alt="Koraflow" className="h-8 w-auto" />
           </a>
 
           <ul className="hidden md:flex items-center gap-7">
@@ -140,13 +140,15 @@ export const Navbar = () => {
                 ))}
               </div>
             </MouseContext.Provider>
-            <a
-              href="#contato"
+            <button
+              type="button"
+              onClick={() => setModalOpen(true)}
               className="flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition shadow-gold"
             >
               <span className="hidden sm:inline">Agendar Diagnóstico</span>
               <Menu className="h-4 w-4 sm:hidden" />
-            </a>
+            </button>
+            <DiagnosticModal open={modalOpen} onOpenChange={setModalOpen} />
           </div>
         </nav>
       </div>

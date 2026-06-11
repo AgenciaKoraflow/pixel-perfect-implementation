@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Facebook, Twitter, Mail } from "lucide-react";
+import logoKoraflow from "@/assets/logo-koraflow.png";
 
 const cols = [
   {
@@ -20,11 +21,8 @@ export const Footer = () => (
     <div className="container-wide">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
         <div className="col-span-2">
-          <div className="flex items-center gap-2 text-white font-display font-semibold text-xl">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-button text-primary-foreground font-bold">
-              K
-            </span>
-            Koraflow
+          <div>
+            <img src={logoKoraflow} alt="Koraflow" className="h-9 w-auto" />
           </div>
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-body" style={{ fontFamily: "Inter" }}>
             Inteligência em Movimento. Intelligence · Development · Creativity — sistemas que pensam, atendem e vendem 24h por dia.
