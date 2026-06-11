@@ -1,4 +1,4 @@
-export const FRAME_COUNT = 160;
+export const FRAME_COUNT = 155;
 
 const BATCH_SIZE = 10;
 
@@ -7,7 +7,7 @@ function loadImage(index: number): Promise<HTMLImageElement | null> {
     const img = new Image();
     img.onload = () => resolve(img);
     img.onerror = () => resolve(null);
-    img.src = `/frames/img-${index + 1}.jpg`;
+    img.src = `/frames/img-${index + 1}.png`;
   });
 }
 
