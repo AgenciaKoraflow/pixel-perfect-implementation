@@ -55,47 +55,58 @@ export function useFrameSequence({
     let aborted = false;
     let tween: gsap.core.Tween | null = null;
 
-    loadFrames(FRAME_COUNT, (firstFrame) => {
-      if (aborted) return;
-      imagesRef.current[0] = firstFrame;
-      // Draw img-1 immediately — before the scroll tween is even created
-      draw(0);
-    }).then((images) => {
+    loadFrames(
+      FRAME_COUNT,
+      (firstFrame) => {
+        if (aborted) return;
+        imagesRef.current[0] = firstFrame;
+        // Draw img-1 immediately — before the scroll tween is even created
+        draw(0);
+      },
+      (images) => {
+        if (aborted) return;
+        // Share the array reference early so draw() sees frames as they load
+        imagesRef.current = images;
+
+        // Start ScrollTrigger as soon as the first frame is ready — don't wait
+        // for all 155 frames. draw() skips null entries gracefully, so frames
+        // that haven't loaded yet simply hold the last rendered frame.
+        tween = gsap.to(obj, {
+          frame: FRAME_COUNT - 1,
+          ease: "none",
+          // immediateRender ensures onUpdate fires right away with the correct
+          // initial scroll-based value, preventing a stale first frame
+          immediateRender: true,
+          onUpdate() {
+            draw(obj.frame);
+
+            const p = obj.frame / (FRAME_COUNT - 1);
+
+            if (heroContentRef.current) {
+              const heroOpacity = p < 0.5 ? 1 : Math.max(0, 1 - (p - 0.5) / 0.25);
+              gsap.set(heroContentRef.current, { opacity: heroOpacity });
+            }
+
+            if (videoContentRef.current) {
+              const videoProgress = p < 0.65 ? 0 : Math.min(1, (p - 0.65) / 0.35);
+              gsap.set(videoContentRef.current, {
+                opacity: videoProgress,
+                y: 40 * (1 - videoProgress),
+                pointerEvents: videoProgress > 0 ? "auto" : "none",
+              });
+            }
+          },
+          scrollTrigger: {
+            trigger: wrapper,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.65,
+          },
+        });
+      },
+    ).then((images) => {
       if (aborted) return;
       imagesRef.current = images;
-
-      tween = gsap.to(obj, {
-        frame: FRAME_COUNT - 1,
-        ease: "none",
-        // immediateRender ensures onUpdate fires right away with the correct
-        // initial scroll-based value, preventing a stale first frame
-        immediateRender: true,
-        onUpdate() {
-          draw(obj.frame);
-
-          const p = obj.frame / (FRAME_COUNT - 1);
-
-          if (heroContentRef.current) {
-            const heroOpacity = p < 0.5 ? 1 : Math.max(0, 1 - (p - 0.5) / 0.25);
-            gsap.set(heroContentRef.current, { opacity: heroOpacity });
-          }
-
-          if (videoContentRef.current) {
-            const videoProgress = p < 0.65 ? 0 : Math.min(1, (p - 0.65) / 0.35);
-            gsap.set(videoContentRef.current, {
-              opacity: videoProgress,
-              y: 40 * (1 - videoProgress),
-              pointerEvents: videoProgress > 0 ? "auto" : "none",
-            });
-          }
-        },
-        scrollTrigger: {
-          trigger: wrapper,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.65,
-        },
-      });
     });
 
     return () => {
