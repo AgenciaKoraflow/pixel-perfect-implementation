@@ -1,28 +1,20 @@
 import { useEffect, useState, useRef, useContext, createContext } from "react";
 import { Menu } from "lucide-react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { DiagnosticModal } from "@/components/landing/DiagnosticModal";
 import logoKoraflow from "@/assets/logo-koraflow.png";
 
 const navLinks = [
   { label: "Soluções", href: "#solucoes" },
   { label: "Processo", href: "#processo" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Diferenciais", href: "#sobre" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contato", href: "#contato" },
 ];
 
 const socialLinks = [
   {
-    label: "Facebook",
-    href: "https://facebook.com",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-      </svg>
-    ),
-  },
-  {
     label: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/koraflow.ia/",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -84,7 +76,6 @@ function SocialDockIcon({ link }: { link: typeof socialLinks[0] }) {
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -140,15 +131,15 @@ export const Navbar = () => {
                 ))}
               </div>
             </MouseContext.Provider>
-            <button
-              type="button"
-              onClick={() => setModalOpen(true)}
-              className="flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition shadow-gold"
+            <a
+              href="https://wa.me"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-white hover:opacity-90 transition shadow-gold"
             >
-              <span className="hidden sm:inline">Agendar Diagnóstico</span>
+              <span className="hidden sm:inline">Falar com o time</span>
               <Menu className="h-4 w-4 sm:hidden" />
-            </button>
-            <DiagnosticModal open={modalOpen} onOpenChange={setModalOpen} />
+            </a>
           </div>
         </nav>
       </div>

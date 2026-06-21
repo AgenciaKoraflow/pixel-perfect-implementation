@@ -1,18 +1,16 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFrameSequence } from "@/hooks/useFrameSequence";
-import { DiagnosticModal } from "@/components/landing/DiagnosticModal";
 
 // Total scroll space allocated to this sequence (multiples of viewport height)
-const SCROLL_MULTIPLIER = 4;
+const SCROLL_MULTIPLIER = 3;
 
 export const HeroSequence = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
   const videoContentRef = useRef<HTMLDivElement>(null);
-  const [modalOpen, setModalOpen] = useState(false);
 
   useFrameSequence({ wrapperRef, canvasRef, heroContentRef, videoContentRef });
 
@@ -84,11 +82,12 @@ export const HeroSequence = () => {
               className="mt-9 flex flex-col items-start gap-3 animate-fade-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <Button variant="hero" size="hero" className="group" onClick={() => setModalOpen(true)}>
-                Agendar Diagnóstico
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Button variant="hero" size="hero" className="group" asChild>
+                <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+                  Falar com o time
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
-              <DiagnosticModal open={modalOpen} onOpenChange={setModalOpen} />
               <p className="text-xs text-body">Resposta em 72h · Sem compromisso</p>
             </div>
           </div>
