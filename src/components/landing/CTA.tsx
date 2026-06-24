@@ -22,7 +22,7 @@ export const CTA = () => {
 
         <div className="mt-9 flex items-center justify-center">
           <Button variant="hero" size="hero" className="group" asChild>
-            <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5511978303459" target="_blank" rel="noopener noreferrer">
               Falar com o time
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>

@@ -1,7 +1,10 @@
-import { useRef } from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { ArrowRight, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFrameSequence } from "@/hooks/useFrameSequence";
+import capaVideo from "@/assets/capa-video.png";
+
+const VIDEO_ID = "3ymH9zLVEQU";
 
 // Total scroll space allocated to this sequence (multiples of viewport height)
 const SCROLL_MULTIPLIER = 3;
@@ -11,8 +14,16 @@ export const HeroSequence = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
   const videoContentRef = useRef<HTMLDivElement>(null);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   useFrameSequence({ wrapperRef, canvasRef, heroContentRef, videoContentRef });
+
+  useEffect(() => {
+    if (!videoOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setVideoOpen(false); };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [videoOpen]);
 
   return (
     <div
@@ -83,7 +94,7 @@ export const HeroSequence = () => {
               style={{ animationDelay: "0.3s" }}
             >
               <Button variant="hero" size="hero" className="group" asChild>
-                <a href="https://wa.me" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5511978303459" target="_blank" rel="noopener noreferrer">
                   Falar com o time
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
@@ -101,8 +112,17 @@ export const HeroSequence = () => {
         >
           <div className="container-narrow py-24 md:py-32 w-full">
 
-            <div className="group relative mx-auto aspect-video w-full max-w-4xl max-h-[440px] overflow-hidden rounded-[24px] border border-white/15 bg-card cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-card to-background" />
+            <div
+              onClick={() => setVideoOpen(true)}
+              className="group relative mx-auto aspect-video w-full max-w-4xl max-h-[440px] overflow-hidden rounded-[24px] border border-white/15 bg-card cursor-pointer"
+            >
+              <img
+                src={capaVideo}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30" />
               <div
                 aria-hidden
                 className="pointer-events-none absolute -inset-px rounded-[24px] opacity-60 blur-2xl bg-primary/20"
@@ -126,6 +146,35 @@ export const HeroSequence = () => {
           style={{ zIndex: 3 }}
         />
       </div>
+
+      {/* Video lightbox */}
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm"
+          onClick={() => setVideoOpen(false)}
+        >
+          <button
+            type="button"
+            aria-label="Fechar vídeo"
+            onClick={() => setVideoOpen(false)}
+            className="absolute top-5 right-5 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <div
+            className="relative w-full max-w-5xl mx-4 aspect-video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
+              title="Koraflow vídeo"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full rounded-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
